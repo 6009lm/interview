@@ -1,0 +1,24 @@
+{
+  "searchParameters": { "q": "káva praha", "gl": "cz", "hl": "cs", "type": "search" },
+  "ads": [
+    { "title": "Reklama – Káva s doručením", "link": "https://ads.example.net/kava" }
+  ],
+  "organic": [
+    {
+      "title": "Káva Praha – pražírna",
+      "link": "https://prazirna.example.com/",
+      "snippet": "Čerstvě pražená káva.",
+      "position": 1
+    },
+    {
+      "title": "Nejlepší kavárny v Praze",
+      "link": "https://www.example.cz/kavarny",
+      "snippet": "Seznam kaváren.",
+      "sitelinks": [{ "title": "Vinohrady", "link": "https://www.example.cz/kavarny/vinohrady" }],
+      "position": 2
+    }
+  ],
+  "peopleAlsoAsk": [
+    { "question": "Kde je nejlepší káva v Praze?", "link": "https://questions.example.org/kava" }
+  ]
+}

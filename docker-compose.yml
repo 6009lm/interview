@@ -1,0 +1,30 @@
+# Lokální vývoj:   docker compose up            → http://localhost:3000 (auto-restart při změně kódu)
+# Unit testy:      docker compose run --rm test
+# API klíč se načte ze souboru .env (viz .env.example); bez klíče běží aplikace s ukázkovými daty.
+
+x-app: &app
+  build: .
+  environment:
+    PORT: 3000
+    SERP_PROVIDER: ${SERP_PROVIDER:-}
+    SERPAPI_KEY: ${SERPAPI_KEY:-}
+    SERPER_API_KEY: ${SERPER_API_KEY:-}
+    SEARCH_GL: ${SEARCH_GL:-cz}
+    SEARCH_HL: ${SEARCH_HL:-cs}
+  volumes:
+    - ./server.js:/app/server.js:ro
+    - ./src:/app/src:ro
+    - ./public:/app/public:ro
+    - ./test:/app/test:ro
+
+services:
+  app:
+    <<: *app
+    command: ["node", "--watch", "server.js"]
+    ports:
+      - "${HOST_PORT:-3000}:3000"
+
+  test:
+    <<: *app
+    command: ["node", "--test", "test/**/*.test.js"]
+    profiles: ["test"]

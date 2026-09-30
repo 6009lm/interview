@@ -1,0 +1,15 @@
+{
+  "name": "google-serp-export",
+  "version": "1.0.0",
+  "description": "Vytáhne organické výsledky 1. strany Google pro zadané klíčové slovo a umožní je stáhnout jako JSON/CSV.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test \"test/**/*.test.js\""
+  }
+}

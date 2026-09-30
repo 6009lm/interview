@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google SERP export</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Google SERP export</h1>
+      <p class="lead">Organické výsledky 1. strany Google pro zadané klíčové slovo, ke stažení jako JSON nebo CSV.</p>
+    </header>
+
+    <form id="search-form" role="search">
+      <label for="query" class="visually-hidden">Klíčové slovo</label>
+      <input id="query" name="q" type="search" maxlength="256" placeholder="např. levné letenky do Londýna" autocomplete="off" required autofocus>
+      <button type="submit">Hledat</button>
+    </form>
+
+    <section id="results" hidden>
+      <div class="toolbar">
+        <p id="summary"></p>
+        <div class="downloads">
+          <button type="button" data-format="json">Stáhnout JSON</button>
+          <button type="button" data-format="csv">Stáhnout CSV</button>
+        </div>
+      </div>
+      <ol id="result-list"></ol>
+    </section>
+
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>

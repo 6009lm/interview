@@ -1,0 +1,15 @@
+# Render.com Blueprint: New → Blueprint → vybrat tento repozitář.
+# Po vytvoření služby doplňte v Environment hodnotu SERPAPI_KEY (nebo SERPER_API_KEY).
+services:
+  - type: web
+    name: google-serp-export
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    envVars:
+      - key: SERPAPI_KEY
+        sync: false
+      - key: SEARCH_GL
+        value: cz
+      - key: SEARCH_HL
+        value: cs

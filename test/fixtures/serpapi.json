@@ -1,0 +1,55 @@
+{
+  "search_metadata": { "status": "Success" },
+  "search_parameters": { "engine": "google", "q": "káva praha", "gl": "cz", "hl": "cs" },
+  "ads": [
+    {
+      "position": 1,
+      "title": "Reklama – Káva s doručením",
+      "link": "https://ads.example.net/kava",
+      "displayed_link": "ads.example.net",
+      "description": "Placený výsledek, nesmí být ve výstupu."
+    }
+  ],
+  "related_questions": [
+    { "question": "Kde je nejlepší káva v Praze?", "link": "https://questions.example.org/kava" }
+  ],
+  "organic_results": [
+    {
+      "position": 2,
+      "title": "Nejlepší kavárny v Praze, \"top\" výběr",
+      "link": "https://www.example.cz/kavarny",
+      "displayed_link": "https://www.example.cz › kavarny",
+      "snippet": "Seznam kaváren,\nkteré stojí za to navštívit."
+    },
+    {
+      "position": 1,
+      "title": "  Káva Praha – pražírna  ",
+      "link": "https://prazirna.example.com/",
+      "displayed_link": "https://prazirna.example.com",
+      "snippet": "Čerstvě pražená káva."
+    },
+    {
+      "position": 3,
+      "title": "Duplicitní odkaz",
+      "link": "https://www.example.cz/kavarny",
+      "snippet": "Stejná URL jako výsledek na pozici 2."
+    },
+    {
+      "position": 4,
+      "title": "Výsledek bez odkazu",
+      "snippet": "Neplatný záznam."
+    },
+    {
+      "position": 5,
+      "title": "Nebezpečný odkaz",
+      "link": "javascript:alert(1)",
+      "snippet": "Neplatný protokol."
+    },
+    {
+      "position": 6,
+      "title": "Kafe na Letné",
+      "link": "https://letna.example.org/kafe/",
+      "snippet": "Výběrová káva."
+    }
+  ]
+}
