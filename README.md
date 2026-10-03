@@ -1,6 +1,6 @@
 # Google SERP export
 
-Webová stránka s jedním vstupním polem. Po zadání klíčového slova vrátí organické (neplacené) výsledky
+Webová stránka s jedním vstupním polem. Po zadání klíčového slova vrátí **organické (neplacené) výsledky
 1. strany Google** a nabídne jejich stažení ve strojově čitelném formátu **JSON** nebo **CSV**.
 
 Projekt nemá žádné npm závislosti – stačí Node.js 22+ (nebo Docker).
