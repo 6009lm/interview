@@ -1,43 +1,48 @@
 :root {
-  --bg: #f7f7f5;
-  --surface: #ffffff;
-  --text: #1c1c1a;
-  --muted: #62625d;
-  --border: #deded8;
-  --accent: #1a56db;
-  --accent-text: #ffffff;
-  --url: #1d7a3a;
-  --error: #b42318;
-  color-scheme: light dark;
-}
+  --bg: #FBE8EC;
+  --surface: #FFF5F7;
+  --surface-alt: #F6D9E0;
+  --border: #E8BFCA;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #161615;
-    --surface: #1f1f1d;
-    --text: #ececea;
-    --muted: #a3a39c;
-    --border: #34342f;
-    --accent: #6b9bff;
-    --accent-text: #0d1526;
-    --url: #6fcf8d;
-    --error: #ff8a80;
-  }
+  --primary: #6B1E2E;
+  --primary-hover: #4E1320;
+  --primary-visited: #8A3A4C;
+
+  --accent: #1F4D3A;
+  --accent-hover: #163829;
+  --accent-soft: #DCE8E0;
+
+  --text: #4A3326;
+  --text-muted: #7A5C4A;
+  --text-on-dark: #FFF5F7;
+
+  --highlight-bg: #F2C9D3;
+  --highlight-text: #6B1E2E;
+
+  --error: #9B2C2C;
+  --shadow: rgba(107, 30, 46, 0.08);
+
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: var(--bg);
   color: var(--text);
   font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-main { max-width: 760px; margin: 0 auto; padding: 48px 16px; }
+main { width: 100%; max-width: 760px; margin: 0 auto; padding: 48px 16px; }
 
+header { text-align: center; }
 h1 { margin: 0 0 4px; font-size: 1.75rem; }
-.lead { margin: 0 0 24px; color: var(--muted); }
+.lead { margin: 0 0 24px; color: var(--text-muted); }
 
 form { display: flex; gap: 8px; }
 
@@ -46,25 +51,29 @@ input[type="search"] {
   min-width: 0;
   padding: 12px 14px;
   font: inherit;
-  color: inherit;
+  color: var(--text);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
 }
 
-input[type="search"]:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+input[type="search"]::placeholder { color: var(--text-muted); }
+
+:focus-visible,
+input[type="search"]:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 button {
   padding: 10px 16px;
   font: inherit;
   font-weight: 600;
-  color: var(--accent-text);
+  color: var(--text-on-dark);
   background: var(--accent);
   border: 0;
   border-radius: 8px;
   cursor: pointer;
 }
 
+button:hover:not(:disabled) { background: var(--accent-hover); }
 button:disabled { opacity: 0.6; cursor: progress; }
 
 .downloads button {
@@ -75,6 +84,8 @@ button:disabled { opacity: 0.6; cursor: progress; }
   font-size: 0.9rem;
 }
 
+.downloads button:hover:not(:disabled) { background: var(--accent-soft); }
+
 .toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -84,7 +95,7 @@ button:disabled { opacity: 0.6; cursor: progress; }
   margin: 32px 0 8px;
 }
 
-.toolbar p { margin: 0; color: var(--muted); }
+.toolbar p { margin: 0; color: var(--text-muted); }
 .downloads { display: flex; gap: 8px; }
 
 #result-list { margin: 0; padding: 0; list-style: none; counter-reset: pos; }
@@ -102,26 +113,33 @@ button:disabled { opacity: 0.6; cursor: progress; }
   left: 0;
   top: 16px;
   width: 28px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-variant-numeric: tabular-nums;
   text-align: right;
 }
 
-#result-list a { color: var(--accent); font-size: 1.1rem; text-decoration: none; }
-#result-list a:hover { text-decoration: underline; }
-.displayed-url { display: block; color: var(--url); font-size: 0.85rem; overflow-wrap: anywhere; }
-.snippet { margin: 4px 0 0; color: var(--muted); }
+#result-list a { color: var(--primary); font-size: 1.1rem; text-decoration: none; }
+#result-list a:visited { color: var(--primary-visited); }
+#result-list a:hover { color: var(--primary-hover); text-decoration: underline; }
+.displayed-url { display: block; color: var(--accent); font-size: 0.85rem; overflow-wrap: anywhere; }
+.snippet { margin: 4px 0 0; color: var(--text); }
+
+.snippet mark,
+.snippet b,
+.snippet em { background: var(--highlight-bg); color: var(--highlight-text); }
 
 .badge {
   display: inline-block;
   margin-left: 6px;
   padding: 0 6px;
   font-size: 0.75rem;
+  color: var(--accent);
+  background: var(--accent-soft);
   border: 1px solid var(--border);
   border-radius: 4px;
 }
 
-#status { color: var(--muted); }
+#status { color: var(--text-muted); text-align: center; }
 #status.error { color: var(--error); }
 
 .visually-hidden {
